@@ -6,8 +6,15 @@ exports.createPages = async ({ actions, graphql }) => {
           slug
         }
       }
+      allContentfulCollection {
+        nodes {
+          slug
+          products {
+            slug
+          }
+        }
+      }
     }
-
   `)
   const { createPage } = actions
   createPage({
@@ -26,4 +33,13 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   )
+
+  result.data.allContentfulCollection.nodes.forEach(collection => 
+    createPage({
+      path: `/collections/${collection.slug}`,
+      component: require.resolve(`./src/templates/collection/collection.js`),
+      context: {
+        collectionSlug: collection.slug,
+      }
+    }))
 }
