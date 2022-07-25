@@ -33,7 +33,7 @@ const Product = ({ data }) => {
               <Arrow onClick={()=> setShow(!show)}></Arrow>
             </ArrowContainer>
           </Description>
-          {show && <ReactMarkdown style={{ width:"100%"}}>{description}</ReactMarkdown>}
+          {show && <ReactMarkdown>{description}</ReactMarkdown>}
         </DetailsContainer>
       </ProductInfoContainer>
       </ProductContainer>

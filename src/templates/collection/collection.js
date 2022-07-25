@@ -26,6 +26,7 @@ query CollectionQuery($collectionSlug: String) {
       collectionTitle
       products {
         title
+        slug
         currentPrice
         mainImage {
           gatsbyImageData(width: 250)
